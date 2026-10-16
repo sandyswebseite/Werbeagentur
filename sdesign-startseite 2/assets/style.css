@@ -111,6 +111,18 @@ a{color:inherit}
 .hero h1 em::after{content:"";position:absolute;left:-.05em;right:-.05em;bottom:.04em;height:.28em;background:var(--sun);opacity:.55;z-index:-1;border-radius:4px;transform-origin:left;animation:mark 1s .9s cubic-bezier(.6,0,.2,1) both}
 @keyframes mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .hero .lead{font-size:var(--s-md)}
+/* Schwung-Pfeil unter „vielleicht zeigt.“: zeichnet sich, dann läuft ein Lichtpunkt entlang und die Spitze stupst nach rechts */
+.hero h1{padding-bottom:.62em}
+.hero h1 em{display:inline-block;white-space:nowrap}
+.swoosh{position:absolute;left:0;top:100%;width:100%;height:auto;aspect-ratio:10/1;margin-top:.02em;overflow:visible;pointer-events:none}
+.swoosh path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.swoosh .line{stroke:url(#swooshGrad);stroke-width:4.5;stroke-dasharray:1;stroke-dashoffset:1;animation:swDraw 1.1s 1.2s cubic-bezier(.6,0,.2,1) forwards}
+.swoosh .head{stroke:var(--petrol);stroke-width:4.5;stroke-dasharray:1;stroke-dashoffset:1;animation:swDraw .35s 2.25s ease-out forwards, swNudge 2.6s 2.8s ease-in-out infinite}
+.swoosh .run{stroke:var(--sun);stroke-width:6.5;stroke-dasharray:.1 1.2;stroke-dashoffset:.1;opacity:0;filter:drop-shadow(0 0 4px var(--sun));animation:swRun 2.6s 2.6s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes swDraw{to{stroke-dashoffset:0}}
+@keyframes swRun{0%{stroke-dashoffset:.1;opacity:0}10%{opacity:1}80%{opacity:1}100%{stroke-dashoffset:-1;opacity:0}}
+@keyframes swNudge{0%,55%,100%{transform:translateX(0)}70%{transform:translateX(7px)}85%{transform:translateX(0)}}
+@media (prefers-reduced-motion: reduce){.swoosh .line,.swoosh .head{stroke-dashoffset:0}.swoosh .run{display:none}}
 .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.4rem}
 .facts{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:.8rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .fact{display:flex;align-items:baseline;gap:.5rem;color:var(--ink-soft);font-size:var(--s-xs)}
