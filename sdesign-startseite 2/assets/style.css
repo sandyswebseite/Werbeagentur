@@ -127,6 +127,7 @@ a{color:inherit}
 .facts{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:.8rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 .fact{display:flex;align-items:baseline;gap:.5rem;color:var(--ink-soft);font-size:var(--s-xs)}
 .fact b{font-size:1.6rem;font-weight:700;color:var(--petrol);font-variant-numeric:tabular-nums;line-height:1}
+@media (min-width:861px){.facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:.6rem 1.6rem}} /* auf dem Desktop immer nebeneinander */
 
 .logo-stage{position:relative;justify-self:center;width:min(100%,400px);aspect-ratio:1;max-width:100%}
 .logo-stage .ring{position:absolute;inset:-4%;border-radius:50%;border:2px dashed color-mix(in srgb,var(--tuerkis) 55%,transparent);animation:spin 40s linear infinite}
@@ -346,6 +347,51 @@ footer{background:var(--paper);padding-top:2.5rem}
 .top .btn,.brand b{white-space:nowrap}
 @media (max-width:420px){.top .wrap{gap:.6rem}.nav{gap:.5rem}.wa-top{width:42px;height:42px}.wa-top svg{width:24px;height:24px}.top .btn{padding:.65rem .95rem;font-size:.92rem}.brand{gap:.55rem}.brand img{width:50px;height:50px}}
 @media (max-width:360px){.brand span{display:none}}
+
+/* Geschenk: kräftiger Petrol-Verlauf (passt zum Fotohintergrund), Konfetti, rundes Foto und schwebende Gewinnkarte */
+.gift{position:relative;overflow:hidden;color:#FFFFFF;padding-block:clamp(4rem,9vw,7rem);background:radial-gradient(120% 90% at 85% 10%,#2C9CA6 0%,transparent 60%),radial-gradient(90% 80% at 10% 100%,#3FB3BC55 0%,transparent 55%),linear-gradient(135deg,#154C55 0%,#1D6672 55%,#1F7A84 100%);--tuerkis-light:#9FE3E8;--white:#FFFFFF}
+.gift::before{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;max-width:720px;max-height:720px;border-radius:50%;background:radial-gradient(circle,rgba(255,210,0,.18),transparent 65%);pointer-events:none}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-6%;left:var(--x);width:10px;height:16px;border-radius:3px;background:var(--c);opacity:.85;animation:fall var(--w) var(--d) linear infinite}
+.confetti i:nth-child(3n){width:9px;height:9px;border-radius:50%}
+.confetti i:nth-child(4n){width:14px;height:6px}
+@keyframes fall{0%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(28px,55vh,0) rotate(220deg)}100%{transform:translate3d(-12px,115vh,0) rotate(480deg)}}
+.gift-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.gift-visual{position:relative;width:min(100%,520px);aspect-ratio:1;justify-self:center}
+.gift-photo{position:absolute;left:14px;top:14px;width:76%;aspect-ratio:1}
+.gift-photo::before{content:"";position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 0deg,#FFD200,#E5667E,#9FE3E8,#FFFFFF,#FFD200);animation:spin 14s linear infinite;opacity:.95}
+.gift-photo img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:50%;border:8px solid #154C55;box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.gift-card{position:absolute;margin:0;right:0;bottom:-2%;width:44%;z-index:2;transform:rotate(7deg);animation:cardFloat 6s ease-in-out infinite}
+.gift-card img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 30px 50px -18px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.4)}
+.gift-card::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);background-size:250% 100%;animation:shine 4.5s 1s ease-in-out infinite;pointer-events:none}
+@keyframes cardFloat{0%,100%{transform:rotate(7deg) translateY(0)}50%{transform:rotate(4deg) translateY(-14px)}}
+@keyframes shine{0%,60%{background-position:120% 0}100%{background-position:-120% 0}}
+.gift-badge{position:absolute;z-index:3;left:62%;top:2%;width:clamp(64px,8vw,86px);aspect-ratio:1;border-radius:50%;background:#FFD200;color:#154C55;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);animation:wiggle 3.2s ease-in-out infinite}
+.gift-badge svg{width:52%;height:52%}
+.gift-badge::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid #FFD200;animation:waPulse 2.4s ease-out infinite}
+@keyframes wiggle{0%,70%,100%{transform:rotate(0) scale(1)}75%{transform:rotate(-12deg) scale(1.08)}82%{transform:rotate(10deg) scale(1.08)}89%{transform:rotate(-6deg)}94%{transform:rotate(3deg)}}
+.gift-copy{display:grid;gap:1.1rem;justify-items:start}
+.gift .eyebrow{color:#9FE3E8}
+.gift-hello{color:#FFD200;font-size:clamp(1.6rem,1.2rem + 1.6vw,2.5rem);line-height:1.1;margin-bottom:-.3rem}
+.gift h2{color:#FFFFFF;font-size:var(--s-xl);font-weight:700}
+.gift h2 span{color:#9FE3E8;display:block}
+.gift-offer{display:flex;align-items:center;gap:1rem;padding:.9rem 1.4rem .9rem 1.1rem;border-radius:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.gift-offer b{font-size:clamp(3.2rem,2.4rem + 3vw,4.8rem);line-height:.9;font-weight:700;color:#FFD200;text-shadow:0 6px 24px rgba(255,210,0,.35)}
+.gift-offer span{font-size:var(--s-md);font-weight:500;line-height:1.25}
+.gift-text{font-size:var(--s-md);font-weight:300;color:#E3F3F3;max-width:52ch}
+.gift-points{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.gift-points li{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .95rem .45rem .7rem;border-radius:999px;background:rgba(255,255,255,.12);font-size:var(--s-xs);font-weight:500}
+.gift-points li::before{content:"✓";display:grid;place-items:center;width:1.3em;height:1.3em;border-radius:50%;background:#FFD200;color:#154C55;font-size:.8em;font-weight:700}
+.gift .cta-row{margin-top:.4rem}
+.btn.wa{background:#25D366;border-color:#25D366;color:#FFFFFF}
+.btn.wa:hover{background:#1EBE5A;border-color:#1EBE5A}
+.btn.wa .ic{width:1.25em;height:1.25em}
+.gift .btn.ghost{color:#FFFFFF;border-color:rgba(255,255,255,.7)}
+.gift .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.gift-sign{font-size:clamp(1.3rem,1.1rem + .8vw,1.8rem);display:flex;align-items:center;gap:.5rem}
+.gift-sign .script{color:#FFFFFF}
+.gift-sign .heart{color:#E5667E;display:inline-block;animation:beat 1.6s ease-in-out infinite}
+@media (max-width:860px){.gift-grid{grid-template-columns:1fr}.gift-visual{width:min(100%,400px)}}
 
 /* Scroll-Animationen: nur wo der Browser sie kann, Inhalte bleiben sonst sichtbar */
 @supports (animation-timeline: view()){
