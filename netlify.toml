@@ -1,0 +1,3 @@
+# Netlify: die Website liegt im Ordner „sdesign-startseite 2“, kein Build-Schritt nötig
+[build]
+  publish = "sdesign-startseite 2"
