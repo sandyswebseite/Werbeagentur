@@ -120,7 +120,7 @@ a{color:inherit}
 .logo-stage .ring{position:absolute;inset:-4%;border-radius:50%;border:2px dashed color-mix(in srgb,var(--tuerkis) 55%,transparent);animation:spin 40s linear infinite}
 .logo-stage .ring.two{inset:-11%;border:1px solid color-mix(in srgb,var(--taupe) 45%,transparent);border-style:dotted;animation-duration:70s;animation-direction:reverse}
 .logo-stage .big{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;box-shadow:0 30px 70px -30px rgba(29,102,114,.6);animation:pop 1.1s cubic-bezier(.2,1.2,.3,1) both, bob 7s 1.2s ease-in-out infinite}
-.logo-stage .sig{position:absolute;right:-6%;bottom:-6%;width:62%;aspect-ratio:575/244;background:var(--ink);-webkit-mask:url(signatur.png) center/contain no-repeat;mask:url(signatur.png) center/contain no-repeat;transform:rotate(-6deg);filter:drop-shadow(0 2px 0 var(--paper))}
+.logo-stage .sig{position:absolute;right:-6%;bottom:-6%;width:62%;aspect-ratio:575/231;background:var(--ink);-webkit-mask:url(signatur.png) center/contain no-repeat;mask:url(signatur.png) center/contain no-repeat;transform:rotate(-6deg);filter:drop-shadow(0 2px 0 var(--paper))}
 .orbit-dot{position:absolute;inset:-4%;animation:spin 14s linear infinite}
 .orbit-dot::before{content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 5px color-mix(in srgb,var(--sun) 25%,transparent)}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -259,7 +259,7 @@ section{position:relative}
 .about-copy h2{font-size:var(--s-xl)}
 .about-copy p{color:var(--ink-soft);max-width:62ch}
 .about-copy .strong{color:var(--ink);font-weight:500;font-size:var(--s-md)}
-.sign{width:min(260px,70%);aspect-ratio:575/244;background:var(--ink);-webkit-mask:url(signatur.png) left center/contain no-repeat;mask:url(signatur.png) left center/contain no-repeat}
+.sign{width:min(260px,70%);aspect-ratio:575/231;background:var(--ink);-webkit-mask:url(signatur.png) left center/contain no-repeat;mask:url(signatur.png) left center/contain no-repeat}
 .creds{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
 .creds span{padding:.45rem .9rem;border-radius:999px;background:var(--paper);font-size:var(--s-xs);color:var(--ink-soft);border:1px solid color-mix(in srgb,var(--taupe) 35%,transparent)}
 @media (max-width:760px){.about-grid{grid-template-columns:1fr;justify-items:center}.about-copy{justify-items:start}}
