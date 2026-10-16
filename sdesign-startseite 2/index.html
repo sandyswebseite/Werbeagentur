@@ -167,6 +167,56 @@
       </article>
     </div>
     <p class="bridge reveal">Auch für private Anlässe wie Einladungskarten oder Beschilderungen bin ich gern für dich da.</p>
+    <div class="surprise">
+      <div class="surprise-head reveal">
+        <p class="eyebrow">Überraschungspaket</p>
+        <h3>Selbst gestaltet. <span class="script">Mein eigener Auftritt.</span></h3>
+        <p class="lead">Bevor ich deinen Auftritt gestalte, zeige ich dir meinen. Klapp die Karten auf und schau, was drinsteckt.</p>
+      </div>
+      <div class="folds">
+        <div class="fold-item reveal">
+          <button class="fold teal" type="button" aria-expanded="false" aria-label="Überraschung 01 aufklappen: Roll-up">
+            <span class="inside"><img src="assets/arbeit-rollup.webp" alt="Roll-up von S.Design, gestaltet von Sandy Lörx" width="444" height="900" loading="lazy"></span>
+            <span class="cover" aria-hidden="true">
+              <span class="front"><svg class="bow" viewBox="0 0 64 40" aria-hidden="true"><path d="M32 20C24 6 8 1 5 11s15 13 27 9z"/><path d="M32 20c8-14 24-19 27-9s-15 13-27 9z"/><path d="M29 22l-7 16 6-3 4 5 1-17zM35 22l7 16-6-3-4 5-1-17z" opacity=".85"/><circle cx="32" cy="20" r="5.5"/></svg><span class="num">01</span><span class="hint">Klapp mich auf</span></span>
+              <span class="back"></span>
+            </span>
+          </button>
+          <p class="fold-cap"><b>Roll-up</b><span>Messeauftritt mit Foto, Botschaft und QR-Code.</span></p>
+        </div>
+        <div class="fold-item reveal">
+          <button class="fold rose" type="button" aria-expanded="false" aria-label="Überraschung 02 aufklappen: Visitenkarte">
+            <span class="inside"><img src="assets/arbeit-visitenkarte.webp" alt="Visitenkarte von S.Design, gestaltet von Sandy Lörx" width="607" height="900" loading="lazy"></span>
+            <span class="cover" aria-hidden="true">
+              <span class="front"><svg class="bow" viewBox="0 0 64 40" aria-hidden="true"><path d="M32 20C24 6 8 1 5 11s15 13 27 9z"/><path d="M32 20c8-14 24-19 27-9s-15 13-27 9z"/><path d="M29 22l-7 16 6-3 4 5 1-17zM35 22l7 16-6-3-4 5-1-17z" opacity=".85"/><circle cx="32" cy="20" r="5.5"/></svg><span class="num">02</span><span class="hint">Klapp mich auf</span></span>
+              <span class="back"></span>
+            </span>
+          </button>
+          <p class="fold-cap"><b>Visitenkarte</b><span>Logo, Signatur und Skyline auf einen Blick.</span></p>
+        </div>
+        <div class="fold-item reveal">
+          <button class="fold sun" type="button" aria-expanded="false" aria-label="Überraschung 03 aufklappen: Gewinnkarte">
+            <span class="inside"><img src="assets/gewinnkarte.webp" alt="Gewinnkarte von S.Design, gestaltet von Sandy Lörx" width="640" height="954" loading="lazy"></span>
+            <span class="cover" aria-hidden="true">
+              <span class="front"><svg class="bow" viewBox="0 0 64 40" aria-hidden="true"><path d="M32 20C24 6 8 1 5 11s15 13 27 9z"/><path d="M32 20c8-14 24-19 27-9s-15 13-27 9z"/><path d="M29 22l-7 16 6-3 4 5 1-17zM35 22l7 16-6-3-4 5-1-17z" opacity=".85"/><circle cx="32" cy="20" r="5.5"/></svg><span class="num">03</span><span class="hint">Klapp mich auf</span></span>
+              <span class="back"></span>
+            </span>
+          </button>
+          <p class="fold-cap"><b>Gewinnkarte</b><span>Ein kleines Geschenk mit großer Wirkung.</span></p>
+        </div>
+        <div class="fold-item reveal">
+          <button class="fold sky" type="button" aria-expanded="false" aria-label="Überraschung 04 aufklappen: Logo &amp; Signatur">
+            <span class="inside"><img src="assets/arbeit-logo.webp" alt="Logo &amp; Signatur von S.Design, gestaltet von Sandy Lörx" width="732" height="800" loading="lazy"></span>
+            <span class="cover" aria-hidden="true">
+              <span class="front"><svg class="bow" viewBox="0 0 64 40" aria-hidden="true"><path d="M32 20C24 6 8 1 5 11s15 13 27 9z"/><path d="M32 20c8-14 24-19 27-9s-15 13-27 9z"/><path d="M29 22l-7 16 6-3 4 5 1-17zM35 22l7 16-6-3-4 5-1-17z" opacity=".85"/><circle cx="32" cy="20" r="5.5"/></svg><span class="num">04</span><span class="hint">Klapp mich auf</span></span>
+              <span class="back"></span>
+            </span>
+          </button>
+          <p class="fold-cap"><b>Logo &amp; Signatur</b><span>Das Herz des Ganzen: Logo, Handschrift, Xanten.</span></p>
+        </div>
+      </div>
+      <p class="surprise-foot reveal">Mehr Arbeitsbeispiele zeige ich dir gern persönlich. <a href="#kontakt">Lass uns reden</a></p>
+    </div>
   </div>
 </section>
 
@@ -310,6 +360,10 @@
     var end=+el.dataset.count, t0=null;
     function step(t){ if(!t0) t0=t; var p=Math.min((t-t0)/1400,1); el.textContent=Math.round(end*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(step); }
     el.textContent="0"; setTimeout(function(){requestAnimationFrame(step)},500);
+  });
+  // Klappkarten öffnen und schließen
+  document.querySelectorAll(".fold").forEach(function(b){
+    b.addEventListener("click", function(){ var o=b.parentNode.classList.toggle("open"); b.setAttribute("aria-expanded", o); });
   });
   // Kopieren
   document.querySelectorAll(".copy").forEach(function(b){
