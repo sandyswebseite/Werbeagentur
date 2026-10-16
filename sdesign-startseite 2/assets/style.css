@@ -319,6 +319,22 @@ footer{background:var(--paper);padding-top:2.5rem}
 .legal-page .todo{background:color-mix(in srgb,var(--sun) 45%,transparent);color:var(--ink);padding:0 .3em;border-radius:4px}
 .foot nav a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--sun);text-underline-offset:4px}
 
+/* WhatsApp: Blase im (mitlaufenden) Header und schwebende Blase unten rechts */
+.wa-top,.wa-float{display:inline-flex;align-items:center;justify-content:center;background:#25D366;color:#FFFFFF;text-decoration:none;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s}
+.wa-top:hover,.wa-float:hover{background:#1EBE5A;transform:translateY(-2px)}
+.wa-top{width:48px;height:48px;flex:none;box-shadow:0 6px 16px -6px rgba(37,211,102,.7)}
+.wa-top svg{width:26px;height:26px}
+.wa-float{position:fixed;z-index:55;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));gap:.55rem;height:60px;min-width:60px;padding:0 1.25rem 0 1.1rem;font-weight:600;box-shadow:0 12px 30px -10px rgba(0,0,0,.45)}
+.wa-float svg{width:30px;height:30px}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #25D366;animation:waPulse 2.4s ease-out infinite;pointer-events:none}
+@keyframes waPulse{0%{transform:scale(1);opacity:.8}70%,100%{transform:scale(1.35);opacity:0}}
+@media (max-width:860px){.wa-float{padding:0;width:60px}.wa-float span{display:none}}
+@media (max-width:860px){.nav a.wa-top{display:inline-flex}}
+.foot{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))} /* Platz, damit die schwebende Blase keine Footer-Links verdeckt */
+.top .btn,.brand b{white-space:nowrap}
+@media (max-width:420px){.top .wrap{gap:.6rem}.nav{gap:.5rem}.wa-top{width:42px;height:42px}.wa-top svg{width:24px;height:24px}.top .btn{padding:.65rem .95rem;font-size:.92rem}.brand{gap:.55rem}.brand img{width:50px;height:50px}}
+@media (max-width:360px){.brand span{display:none}}
+
 /* Scroll-Animationen: nur wo der Browser sie kann, Inhalte bleiben sonst sichtbar */
 @supports (animation-timeline: view()){
   .reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
